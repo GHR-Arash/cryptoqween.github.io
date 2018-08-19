@@ -46,8 +46,8 @@ $(document).ready(function() {
 
 	var decorateWithFullVolume = function(message) {
 		var volData = CCC.FULLVOLUME.unpack(message);
-		var from = volData['SYMBOL'];
-		var to = 'USD';
+		var from = message.split("~")[2] || null;
+  		var to = message.split("~")[3] || null;
 		var fsym = CCC.STATIC.CURRENCY.getSymbol(from);
 		var tsym = CCC.STATIC.CURRENCY.getSymbol(to);
 		var pair = from + to;
